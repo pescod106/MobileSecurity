@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MoblieSecurity</string>
+    <string name="serverurl">http://192.168.155.1:8080/info.xml</string>
+</resources>
