@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#000000">
     <TextView
         android:textColor="#66ff00"
         android:text="我的手机卫士"
@@ -14,9 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
-        android:background="#00f"/>
+        android:background="#c0c2c1"/>
     <GridView
         android:id="@+id/gv_main"
+        android:listSelector="@android:color/transparent"
         android:numColumns="3"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"

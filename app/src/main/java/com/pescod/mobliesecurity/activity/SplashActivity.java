@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -33,6 +34,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.locks.Lock;
 
 public class SplashActivity extends Activity {
     private UpdateInfo info;
@@ -58,7 +60,6 @@ public class SplashActivity extends Activity {
                     Log.i(TAG,"服务器版本为"+serverVersion+",本地版本号为"+currentVersion);
                     if (currentVersion.equals(serverVersion)){
                         Log.i(TAG,"版本号相同，进入主界面");
-                        loadMainUI();
                     }else{
                         Log.i(TAG,"版本号不同，升级对话框");
                         showUpdateDialog();
@@ -90,6 +91,7 @@ public class SplashActivity extends Activity {
                     Toast.makeText(getApplicationContext(),"文件下载失败",Toast.LENGTH_SHORT).show();
                     break;
             }
+            loadMainUI();
         }
     };
     private TextView tv_splash_version;
@@ -102,6 +104,7 @@ public class SplashActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_splash);
+        
         rl_splash = (RelativeLayout)findViewById(R.id.rl_splash);
         tv_splash_version = (TextView)findViewById(R.id.tv_splash_version);
         tv_splash_version.setText("版本号:"+getVersion());
@@ -112,8 +115,26 @@ public class SplashActivity extends Activity {
         alphaAnimation.setDuration(2000);
         rl_splash.startAnimation(alphaAnimation);
 
-        new Thread(new CheckVersionTask()){
-        }.start();
+        SharedPreferences sharedPreferences = getSharedPreferences("config",MODE_PRIVATE);
+        boolean autoupdate = sharedPreferences.getBoolean("autoupdate",true);
+        if (autoupdate){
+            new Thread(new CheckVersionTask()){
+            }.start();
+        }else{ 
+            new Thread(new Runnable() {
+                Message msg = Message.obtain();
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(1800);
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    handler.handleMessage(msg);
+                }
+                
+            }).start();
+        }
     }
 
     /**
