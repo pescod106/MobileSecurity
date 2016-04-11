@@ -34,6 +34,32 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
+                    case 0:
+                        Intent lostProtectedIntent = new Intent(
+                                MainActivity.this,LostProtectedActivity.class);
+                        startActivity(lostProtectedIntent);
+                        break;
+                    case 1:
+                        
+                        break;
+                    case 2:
+                        
+                        break;
+                    case 3:
+                        
+                        break;
+                    case 4:
+                        
+                        break;
+                    case 5:
+                        
+                        break;
+                    case 6:
+                        
+                        break;
+                    case 7:
+                        
+                        break;
                     case 8:
                         Intent intent = new Intent(MainActivity.this,
                                 SettingCenterActivity.class);

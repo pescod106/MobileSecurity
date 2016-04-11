@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="#000000">
     <TextView
-        android:textColor="#66ff00"
+        android:textColor="@color/colorTilte"
         android:text="我的手机卫士"
         android:textSize="28sp"
         android:gravity="center_horizontal"
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
-        android:background="#c0c2c1"/>
+        android:background="@color/colorDivide"/>
     <GridView
         android:id="@+id/gv_main"
         android:listSelector="@android:color/transparent"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical">
+    <TextView
+        style="@style/text_title_style"
+        android:text="2.手机卡的绑定"/>
+    <View
+        style="@style/image_divideline_style"/>
+    <TextView
+        style="@style/text_content_style"
+        android:layout_marginTop="8dp"
+        android:text="一旦绑定sim卡,\n下次重启手机如果sim卡变化,就发送报警短信"/>
+    <RelativeLayout
+        android:id="@+id/rl_setup2_bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/text_content_style"
+            android:paddingTop="8dp"
+            android:text="点击绑定sim卡"/>
+        <ImageView
+            android:id="@+id/iv_setup2_bind_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_alignParentRight="true"
+            android:src="@drawable/switchoff"/>        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/image_offline_style"/>
+        <ImageView
+            style="@style/image_online_style"/>
+        <ImageView
+            style="@style/image_offline_style"/>
+        <ImageView
+            style="@style/image_offline_style"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/image_logo_style"
+            android:src="@drawable/sim"/>
+        <Button
+            style="@style/button_pre_style"/>
+        <Button
+            style="@style/button_next_style"/>
+    </RelativeLayout>
+    
+</LinearLayout>

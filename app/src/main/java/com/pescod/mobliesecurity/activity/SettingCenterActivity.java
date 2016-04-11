@@ -42,6 +42,7 @@ public class SettingCenterActivity extends Activity {
         }else{
             tv_setting_autoupadte_status.setText("自动更新已经关闭");
             cb_setting_autoupdate.setChecked(false);
+            tv_setting_autoupadte_status.setTextColor(Color.RED);
         }
         /**
          * 当CheckBox的状态改变时执行以下代码
